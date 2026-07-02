@@ -93,15 +93,26 @@ The RL machinery is based on the [Flow-GRPO](https://github.com/yifan123/flow_gr
 codebase; the video backbones build on [Self-Forcing](https://github.com/guandeh17/Self-Forcing)
 and [LongLive](https://huggingface.co/Efficient-Large-Model/LongLive-1.3B) (Wan2.1-T2V-1.3B).
 
+The reference environment is **Python 3.12 + PyTorch 2.7.1 (CUDA 12.9)**;
+`requirements.txt` is pinned to match it.
+
 ```bash
 git clone https://github.com/jingw193/TempAct.git
 cd TempAct
 
-conda create -n tempact python=3.10 -y
+conda create -n tempact python=3.12 -y
 conda activate tempact
-pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu126
+# Install PyTorch first from the CUDA index (CPU wheels will not work for training):
+pip install torch==2.7.1 torchvision==0.22.1 --index-url https://download.pytorch.org/whl/cu129
+pip install -r requirements.txt
 pip install -e .            # see setup.py / requirements.txt
 ```
+
+> **FlashAttention & extras:** the reference environment ships prebuilt
+> `flash_attn==2.8.1`. Install a wheel matching your CUDA/torch if you need it.
+> Optional reward/eval backends (PaddleOCR, HPSv2, ImageReward, OpenCLIP,
+> DeepSpeed, xDiT/`xfuser`) are commented out in `requirements.txt` — uncomment
+> only the ones you use.
 
 > **Paths:** The released TempAct LoRA checkpoints are referenced via the
 > local `ckpt/` directory (see [Released checkpoints](#released-checkpoints)).

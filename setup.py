@@ -4,55 +4,60 @@ setup(
     name="tempact",
     version="0.0.1",
     packages=find_packages(),
-    python_requires=">=3.10",
+    python_requires=">=3.12",
     install_requires=[
-        "torch==2.6.0",
-        "torchvision==0.21.0",
-        "transformers==4.40.0",
-        "accelerate==1.4.0",
-        "diffusers==0.33.1", 
-        
-        "numpy==1.26.4",
-        "pandas==2.2.3",
-        "scipy==1.15.2",
-        "scikit-learn==1.6.1",
-        "scikit-image==0.25.2",
-        
-        "albumentations==1.4.10",  
-        "opencv-python==4.11.0.86",
-        "pillow==10.4.0",
-        
-        "tqdm==4.67.1",
-        "wandb==0.18.7",
-        "pydantic==2.10.6",  
-        "requests",
-        "matplotlib==3.10.0",
-        
-        "flash-attn==2.7.4.post1",
-        "deepspeed==0.16.4",  
-        "peft==0.10.0",       
-        "bitsandbytes==0.45.3",
-        
-        "aiohttp==3.11.13",
-        "fastapi==0.115.11", 
-        "uvicorn==0.34.0",
-        
-        "huggingface-hub==0.29.1",  
-        "datasets==3.3.2",
-        "tokenizers==0.19.1",
-        
+        # torch / torchvision / triton are installed separately from the
+        # PyTorch index (see README); pin lower bounds only here.
+        "torch>=2.7.1",
+        "torchvision>=0.22.1",
+        "transformers==4.56.1",
+        "accelerate==1.10.1",
+        "diffusers==0.37.1",
+        "peft==0.17.1",
+        "safetensors==0.6.2",
+        "tokenizers==0.21.4",
+        "huggingface-hub==0.34.4",
+        "datasets==4.0.0",
+        "sentencepiece==0.2.1",
+        "bitsandbytes==0.46.1",
         "einops==0.8.1",
-        "nvidia-ml-py==12.570.86",
-        "xformers",
-        "absl-py",
-        "ml_collections",
-        "sentencepiece",
+
+        "numpy==2.4.4",
+        "pandas==2.3.2",
+        "scipy==1.16.2",
+        "scikit-learn==1.7.2",
+
+        "opencv-python==4.13.0.92",
+        "pillow==11.2.1",
+        "imageio==2.37.3",
+        "imageio-ffmpeg==0.6.0",
+        "av==17.0.1",
+        "decord==0.6.0",
+        "mediapy==1.1.6",
+        "matplotlib==3.10.6",
+
+        "openai>=1.0",
+        "qwen-vl-utils>=0.0.14",
+
+        "omegaconf==2.3.0",
+        "ml_collections==1.1.0",
+        "easydict==1.13",
+        "absl-py==2.3.0",
+        "ftfy==6.3.1",
+        "pydantic==2.11.7",
+        "requests==2.32.4",
+        "aiohttp==3.12.15",
+        "tqdm==4.67.1",
+        "wandb==0.21.4",
+        "nvidia-ml-py==13.580.82",
+
+        "fastapi==0.116.1",
+        "uvicorn==0.35.0",
     ],
     extras_require={
         "dev": [
-            "ipython==8.34.0",
-            "black==24.2.0",
-            "pytest==8.2.0"
+            "ipython",
+            "pytest",
         ]
     }
 )
